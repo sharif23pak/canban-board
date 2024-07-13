@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="kanban-board">
+        <div class="column" id="todo">
+            <h2>To Do</h2>
+            <button class="add-task-button" onclick="openTaskModal()">Add new task +</button>
+        </div>
+        <div class="column" id="in-progress">
+            <h2>In Progress</h2>
+        </div>
+        <div class="column" id="done">
+            <h2>Done</h2>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTaskModal()">&times;</span>
+            <h2>Tasks</h2>
+            <form id="taskForm" onsubmit="return addTask(event)">
+                <label for="task-title">Title:</label>
+                <input type="text" id="task-title" required>
+                <label for="task-description">Description:</label>
+                <textarea id="task-description" required></textarea>
+                <button type="button" onclick="closeTaskModal()">Close</button>
+                <button type="submit">Add task</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div id="editTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditTaskModal()">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="editTaskForm" onsubmit="return editTask(event)">
+                <label for="edit-task-title">Title:</label>
+                <input type="text" id="edit-task-title" required>
+                <label for="edit-task-description">Description:</label>
+                <textarea id="edit-task-description" required></textarea>
+                <button type="button" onclick="closeEditTaskModal()">Close</button>
+                <button type="submit">Save changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</
